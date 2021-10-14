@@ -1,0 +1,3 @@
+export const GET_SWITCH_THEME = "GET_SWITCH_THEME";
+export const GET_COUNTRY_SELECTED = "GET_COUNTRY_SELECTED";
+export const GET_DATA = "GET_DATA";

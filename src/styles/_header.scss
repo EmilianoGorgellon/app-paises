@@ -1,0 +1,39 @@
+$colorLigth:  hsl(0, 0%, 100%);
+$backgroundLigth: hsl(0, 0%, 98%);
+$inputLigth: hsl(0, 0%, 52%);
+$colorDark: hsl(200, 15%, 8%);
+$backgroundDark:  hsl(207, 26%, 17%);
+$darkModeElement: hsl(209, 23%, 22%);
+.ligth-theme {
+    background-color: $backgroundLigth;
+    color: $colorDark;
+}
+.dark-theme {
+    background-color: $darkModeElement;
+    color: $colorLigth
+}
+.container--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    .header--title {
+        margin: 0 0 0 20px;
+    }
+    .container--switch-theme {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        padding: 10px;
+        border-radius: 6px;
+        .icon--moon {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .label--icon-moon {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}

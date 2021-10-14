@@ -1,0 +1,93 @@
+$colorLigth:  hsl(0, 0%, 100%); //Dark Mode Text & Light Mode Elements
+$backgroundLigth: hsl(0, 0%, 98%);
+$inputLigth: hsl(0, 4%, 90%);
+$colorDark: hsl(200, 15%, 8%); // ligth mode text
+$backgroundDark:  hsl(207, 26%, 17%);
+$darkModeElement: hsl(209, 23%, 22%);
+// @mixin theme ($color, $backgroundColor) {
+
+// }
+.ligth-theme-main {
+    background-color: $inputLigth;
+    color: $colorDark;
+}
+.ligth-theme-elements {
+    background-color: $colorLigth;
+    color: $colorDark;
+}
+.dark-theme-main {
+    background-color: $backgroundDark;
+    color: $colorLigth;
+}
+.dark-theme-elements {
+    background-color: $darkModeElement;
+    color: $colorLigth;
+}
+.container--main {
+    min-height: 100vh;
+    .container--main-filters {
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start ;
+        align-items: left;
+        padding-top: 60px;
+        .container--main-filters-input {
+            position: relative;
+            display: flex;
+            align-items: left;
+            width: 100%;
+            .main--filters-input { 
+                font-size: 20px;
+                margin-left: 60px;
+                width: 65%;
+                padding: 10px 10px 10px 60px;
+                outline: 0;
+                border-radius: 6px;
+                border: 0;
+            }
+            .icon--search {
+                position: absolute;
+                left: 12%;
+                top: 30%;
+            }
+        }
+        .main--filters-select {
+            font-size: 20px;
+            margin-left: 60px;
+            margin-top: 5%;
+            width: 50%;
+            padding: 10px 10px 10px 20px;
+            border-radius: 6px;
+            outline: 0;
+            border: 0;
+        }
+       
+    }
+    .container--countrys {
+        display: grid;
+        padding: 60px;
+        grid-template-columns: repeat(1 ,1fr);
+        gap: 60px;
+        .container--all-country {
+            width: 100%;
+            border-radius: 6px;
+            .all--country-img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+            .all--country-name {
+                margin-left: 20px;
+            }
+            .all--country-description {
+                margin-left: 20px;
+                font-weight: 600;
+                .text-span {
+                    font-weight: 300;   
+                }
+            }
+        }
+    }
+}

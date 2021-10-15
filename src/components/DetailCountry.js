@@ -23,16 +23,16 @@ const DetailCountry = (props) => {
                         <h2 className="card--detailCountry-title">{dato.name.common}</h2>
                         <div className="card--detailCountry-descriptions">
                             <p className="detailCountry-description">
-                                Native Name: <span className="detailCountry--description-span">{getObjectValueName[getObjectValueName.length-1].common}</span> <br />
+                                Native Name: <span className="detailCountry--description-span">{getObjectValueName[getObjectValueName.length-1].common ? getObjectValueName[getObjectValueName.length-1].common : "No data"}</span> <br />
                                 Population: <span className="detailCountry--description-span">{dato.population}</span> <br />
                                 Region: <span className="detailCountry--description-span">{dato.region}</span> <br />
                                 Sub Region: <span className="detailCountry--description-span">{dato.subregion}</span> <br />
-                                Capital: <span className="detailCountry--description-span">{dato.capital[0]} </span>
+                                Capital: <span className="detailCountry--description-span">{dato.capital ? dato.capital[0] : "No data"} </span>
                             </p>
                             <p className="detailCountry-description">
-                                Top Level Domain: <span className="detailCountry--description-span">{dato.tld[0]}</span> <br />
-                                Currencies: <span className="detailCountry--description-span">{getObjectValueCurrencies[getObjectValueCurrencies.length-1].name}</span> <br />
-                                Languages: <span className="detailCountry--description-span">{getObjectValueLanguages.join(", ")}</span>
+                                Top Level Domain: <span className="detailCountry--description-span">{dato.tld ? dato.tld[0] : "No data"}</span> <br />
+                                Currencies: <span className="detailCountry--description-span">{getObjectValueCurrencies[getObjectValueCurrencies.length-1].name ? getObjectValueCurrencies[getObjectValueCurrencies.length-1].name : "No data"}</span> <br />
+                                Languages: <span className="detailCountry--description-span">{getObjectValueLanguages ? getObjectValueLanguages.join(", ") : "No data"}</span>
                             </p>
                         </div>
                         {dato.borders ? 

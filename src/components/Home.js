@@ -1,5 +1,4 @@
 import React, {useEffect, useState, useContext, useRef} from "react";
-import axios from "axios";
 import HomeContext from "../context/Home/HomeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +12,7 @@ const Home = () => {
     let filterCountry;
     useEffect(() => {
         getData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, [])
     const handleChanged = () => {
         setRegion(regionRef.current.value);

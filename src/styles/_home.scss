@@ -1,12 +1,8 @@
 $colorLigth:  hsl(0, 0%, 100%); //Dark Mode Text & Light Mode Elements
-$backgroundLigth: hsl(0, 0%, 98%);
 $inputLigth: hsl(0, 4%, 90%);
 $colorDark: hsl(200, 15%, 8%); // ligth mode text
 $backgroundDark:  hsl(207, 26%, 17%);
 $darkModeElement: hsl(209, 23%, 22%);
-// @mixin theme ($color, $backgroundColor) {
-
-// }
 .ligth-theme-main {
     background-color: $inputLigth;
     color: $colorDark;
@@ -28,26 +24,26 @@ $darkModeElement: hsl(209, 23%, 22%);
     .container--main-filters {
         display: flex;
         flex-direction: column;
-        // justify-content: flex-start ;
         align-items: left;
         padding-top: 60px;
         .container--main-filters-input {
             position: relative;
             display: flex;
             align-items: left;
-            width: 100%;
+            margin-left: 60px;
+            margin-right: 60px;
             .main--filters-input { 
                 font-size: 20px;
-                margin-left: 60px;
-                width: 65%;
-                padding: 10px 10px 10px 60px;
+                width: 80%;
+                padding: 10px 10px 10px 18%;
                 outline: 0;
                 border-radius: 6px;
                 border: 0;
+                max-height: 40px;
             }
             .icon--search {
                 position: absolute;
-                left: 12%;
+                left: 8%;
                 top: 30%;
             }
         }
@@ -63,6 +59,26 @@ $darkModeElement: hsl(209, 23%, 22%);
         }
        
     }
+    // Media queries tablets and computers
+    @media screen and (min-width: 576px) {
+        .container--main-filters {
+            justify-content: space-between;
+            flex-direction: row;
+            .container--main-filters-input {
+                width: 40%;
+            }
+            .main--filters-select {
+                margin-top: 0;
+                margin-right: 60px;
+                width: 30%;
+            }
+            @media screen and (min-width: 1024px) {
+                .main--filters-select {
+                    width: 18%;
+                }
+            }
+        }
+    }
     .container--countrys {
         display: grid;
         padding: 60px;
@@ -71,23 +87,41 @@ $darkModeElement: hsl(209, 23%, 22%);
         .container--all-country {
             width: 100%;
             border-radius: 6px;
-            .all--country-img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                border-top-left-radius: 6px;
-                border-top-right-radius: 6px;
-            }
-            .all--country-name {
-                margin-left: 20px;
-            }
-            .all--country-description {
-                margin-left: 20px;
-                font-weight: 600;
-                .text-span {
-                    font-weight: 300;   
+            .container--card-link {
+                text-decoration: none;
+                .all--country-img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                }
+                .all--country-name {
+                    margin-left: 20px;
+                    text-decoration: none;
+                }
+                .all--country-description {
+                    margin-left: 20px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    .text-span {
+                        font-weight: 300; 
+                        text-decoration: none;  
+                    }
                 }
             }
+        }
+    }
+    // Media querie tablet 
+    @media screen and (min-width: 576px) and (max-width: 1024px) {
+        .container--countrys {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    // Media querie computer
+    @media screen and (min-width: 1024px) {
+        .container--countrys {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 }

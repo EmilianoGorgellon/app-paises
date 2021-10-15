@@ -1,15 +1,11 @@
-
-// Funcion para switch theme darrk o ligth
-// funcion para mandar de detalles del pais seleccionado a los paises alrededores
-
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import HomeReducer from "./HomeReducer.js";
 import HomeContext from "./HomeContext";
 import axios from "axios";
 const HomeState = (props) => {
     const initialState = {
         switchTheme: false,
-        countrySelected: "",
+        render: false,
         dataJson: []
     }
     const getData = async () => {
@@ -27,17 +23,20 @@ const HomeState = (props) => {
             payload: state.switchTheme === true ? false : true
         })
     }
-    const FunctionCountrySelected = () => {
-        
+    const RenderPage = () => {
+        dispatch({
+            type: "GET_RENDER_PAGE", 
+            payload: state.render === true ? false : true
+        })
     }
     return (
         <HomeContext.Provider value={{ 
             switchTheme: state.switchTheme,
-            countrySelected : state.countrySelected,
+            render : state.render,
             dataJson: state.dataJson,
             getData,
             FunctionSwitchTheme,
-            FunctionCountrySelected
+            RenderPage
         }}>
 
             {props.children}

@@ -7,7 +7,7 @@ const HomeCountry = (props) => {
     return (
         datos.map((data, i) =>
             <article className={switchTheme ? "container--all-country ligth-theme-elements" : "container--all-country dark-theme-elements"} key={i}>
-                <Link to={`/name/${data.name.common}`}>
+                <Link to={`/name/${data.name.common}`} className="container--card-link">
                     <img className="all--country-img" src={data.flags.svg} alt={data.name} />
                     <h2 className={switchTheme ? "all--country-name ligth-theme-elements" : "all--country-name dark-theme-elements"} >{data.name.common}</h2>
                     <p className={switchTheme ? "all--country-description ligth-theme-elements" : "all--country-description dark-theme-elements"}>

@@ -1,6 +1,5 @@
 $colorLigth:  hsl(0, 0%, 100%);
 $backgroundLigth: hsl(0, 0%, 98%);
-$inputLigth: hsl(0, 0%, 52%);
 $colorDark: hsl(200, 15%, 8%);
 $backgroundDark:  hsl(207, 26%, 17%);
 $darkModeElement: hsl(209, 23%, 22%);
@@ -16,7 +15,7 @@ $darkModeElement: hsl(209, 23%, 22%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    min-height: 80px;
     .header--title {
         margin: 0 0 0 20px;
     }

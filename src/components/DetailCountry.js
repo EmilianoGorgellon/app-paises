@@ -1,48 +1,55 @@
-import React, {useState} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
+import React, { useContext} from 'react'
 import { Link } from "react-router-dom";
+import HomeContext from '../context/Home/HomeContext';
 const DetailCountry = (props) => {
     const dataCountry = props.dataCountry;
     const getObjectValueName = props.getObjectValueName;
     const getObjectValueCurrencies = props.getObjectValueCurrencies;
     const getObjectValueLanguages = props.getObjectValueLanguages;
 
-    const [render, setRender] = useState(false);
+    const {RenderPage, switchTheme} = useContext(HomeContext)
 
-    const renderPage = () => render ? setRender(false) : setRender(true)
+    const renderPage = () => RenderPage()
 
     return (
-        <>
-            <Link to="/"> Back </Link>
-            {dataCountry.map((dato, i) => 
-                <section key={i}>
-                    <img src={dato.flags.svg} alt={dato.name.common}/>
-                    <div>
-                        <h2>{dato.name.common}</h2>
-                        <div>
-                            <p>
-                                Native Name: {getObjectValueName[getObjectValueName.length-1].common} <br />
-                                Population: {dato.population} <br />
-                                Region: {dato.region} <br />
-                                Sub Region: {dato.subregion} <br />
-                                Capital: {dato.capital[0]}
+        <div className={switchTheme ? "container--card-detailCountry ligth-theme-main" : "container--card-detailCountry dark-theme-main"}>
+            <Link to="/" className={switchTheme ? "link-back ligth-theme-elements" : "link-back dark-theme-elements"}><FontAwesomeIcon icon={faLongArrowAltLeft} />   Back</Link>
+            {dataCountry.length !== 0 ? dataCountry.map((dato, i) => 
+                <section key={i} className="card--detailCountry">
+                    <img src={dato.flags.svg} alt={dato.name.common} className="card--detailCountry-img"/>
+                    <div className="container--card-description">
+                        <h2 className="card--detailCountry-title">{dato.name.common}</h2>
+                        <div className="card--detailCountry-descriptions">
+                            <p className="detailCountry-description">
+                                Native Name: <span className="detailCountry--description-span">{getObjectValueName[getObjectValueName.length-1].common}</span> <br />
+                                Population: <span className="detailCountry--description-span">{dato.population}</span> <br />
+                                Region: <span className="detailCountry--description-span">{dato.region}</span> <br />
+                                Sub Region: <span className="detailCountry--description-span">{dato.subregion}</span> <br />
+                                Capital: <span className="detailCountry--description-span">{dato.capital[0]} </span>
                             </p>
-                            <p>
-                                Top Level Domain: {dato.tld[0]} <br />
-                                Currencies: {getObjectValueCurrencies[getObjectValueCurrencies.length-1].name} <br />
-                                Languages: {getObjectValueLanguages.join(", ")}
+                            <p className="detailCountry-description">
+                                Top Level Domain: <span className="detailCountry--description-span">{dato.tld[0]}</span> <br />
+                                Currencies: <span className="detailCountry--description-span">{getObjectValueCurrencies[getObjectValueCurrencies.length-1].name}</span> <br />
+                                Languages: <span className="detailCountry--description-span">{getObjectValueLanguages.join(", ")}</span>
                             </p>
-                            <Link to={`/name/paraguay`}>Paraguay</Link>
                         </div>
-                        <p>Border Countries: </p>
-                            {dato.borders.map((data, i) => 
-                                <div key={i}>
-                                    <Link to={`/alpha/${data}`} onClick={renderPage}>{data}</Link> <br />
+                        {dato.borders ? 
+                            <>
+                                <p className="card--detailCountry-borders">Border Countries: </p>
+                                <div className="borders--container-links">
+                                    {dato.borders.map((data, i) => 
+                                        <Link className={switchTheme ? "border-links ligth-theme-elements" : "border-links dark-theme-elements"} key={i} to={`/alpha/${data}`} onClick={renderPage}>{data}</Link> 
+                                    )}
                                 </div>
-                            )}
+                            </>
+                            : null    
+                        }
                     </div>
                 </section>
-            )}
-        </>
+            ) : <h1 className={switchTheme ? "error-title ligth-theme-elements" : "error-title dark-theme-elements"}>Error, no data was found for this country</h1>}
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-import {GET_SWITCH_THEME, GET_COUNTRY_SELECTED, GET_DATA} from "../type.js";
+import {GET_SWITCH_THEME, GET_RENDER_PAGE, GET_DATA} from "../type.js";
 
 const HomeReducer = (state, action) => {
     const {type, payload} = action;
@@ -8,7 +8,7 @@ const HomeReducer = (state, action) => {
                 ...state,
                 switchTheme: payload
             }
-        case GET_COUNTRY_SELECTED:
+        case GET_RENDER_PAGE:
             return {
                 ...state,
                 countrySelected: payload

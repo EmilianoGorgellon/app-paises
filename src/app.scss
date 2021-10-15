@@ -1,6 +1,14 @@
 @import "./styles/header";
 @import "./styles/home";
+@import "./styles/countryDetail";
+
 body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
+}
+.error-title {
+    margin-top: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
 }

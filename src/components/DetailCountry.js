@@ -3,6 +3,7 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext} from 'react'
 import { Link } from "react-router-dom";
 import HomeContext from '../context/Home/HomeContext';
+import { Fade } from 'react-reveal';
 const DetailCountry = (props) => {
     const dataCountry = props.dataCountry;
     const getObjectValueName = props.getObjectValueName;
@@ -15,8 +16,11 @@ const DetailCountry = (props) => {
 
     return (
         <div className={switchTheme ? "container--card-detailCountry ligth-theme-main" : "container--card-detailCountry dark-theme-main"}>
-            <Link to="/" className={switchTheme ? "link-back ligth-theme-elements" : "link-back dark-theme-elements"}><FontAwesomeIcon icon={faLongArrowAltLeft} />   Back</Link>
+            <Fade left>
+                <Link to="/" className={switchTheme ? "link-back ligth-theme-elements" : "link-back dark-theme-elements"}><FontAwesomeIcon icon={faLongArrowAltLeft} />   Back</Link>
+            </Fade>
             {dataCountry.length !== 0 ? dataCountry.map((dato, i) => 
+                <Fade right>
                 <section key={i} className="card--detailCountry">
                     <img src={dato.flags.svg} alt={dato.name.common} className="card--detailCountry-img"/>
                     <div className="container--card-description">
@@ -48,6 +52,7 @@ const DetailCountry = (props) => {
                         }
                     </div>
                 </section>
+                </Fade>
             ) : <h1 className={switchTheme ? "error-title ligth-theme-elements" : "error-title dark-theme-elements"}>Error, no data was found for this country</h1>}
         </div>
     )
